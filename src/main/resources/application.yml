@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: muyie-registry
+  profiles:
+    active:
+    - dev
+server:
+  port: 8761
+  compression:
+    enabled: true
+  error:
+    whitelabel:
+      enabled: false

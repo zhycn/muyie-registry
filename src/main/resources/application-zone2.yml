@@ -1,0 +1,9 @@
+eureka:
+  environment: zone
+  client:
+    region: cn-shanghai-1
+    serviceUrl:
+      zone1: http://10.177.93.84:8761/eureka/
+      zone2: http://10.177.93.85:8761/eureka/
+    availability-zones:
+      cn-shanghai-1: zone1,zone2

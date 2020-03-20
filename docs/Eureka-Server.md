@@ -1,6 +1,6 @@
 # Service Discovery: Eureka Server
 
-本文是基于 Spring Boot 来快速搭建 Eureka Server。首先，添加如下依赖管理：
+本文基于 Spring Boot 来快速搭建 Eureka Server。首先，在 Spring Boot 项目中添加 Maven 依赖管理：
 
 ```
 <dependency>
@@ -17,7 +17,7 @@
 </dependency>
 ```
 
-然后，在启动类上添加@EnableEurekaServer注解类：
+然后，在启动类上添加 @EnableEurekaServer 注解类：
 
 ```
 @SpringBootApplication
@@ -30,8 +30,6 @@ public class Application {
 
 }
 ```
-
-接下来，我们重点介绍如何使用配置参数。
 
 公共配置我们使用`bootstrap.yml`来管理：
 
@@ -60,6 +58,8 @@ eureka:
     path: /
 ```
 
+接下来，我们重点介绍不同模式如何使用配置参数。
+
 ## 1. 单机模式
 
 单机模式仅适用于测试环境，生产环境还是要采用集群高可用模式。
@@ -75,7 +75,7 @@ eureka:
 
 ## 2. 集群模式
 
-集群模式采用5个节点组建集群，只要确保每个节点指向集群中的其他节点即可。
+搭建集群环境时，你只要确保每个节点指向集群中的其他节点即可。这里我们使用5个节点来搭建集群：
 
 ```
 # application-peer1.yml
@@ -149,3 +149,5 @@ eureka:
     availability-zones:
       cn-shanghai-1: zone1,zone2
 ```
+
+这样我们就有两个节点来确保服务的高可用性，即便一个节点故障还能有另一个节点来提供服务。

@@ -41,7 +41,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
     metadataMap:
-      instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+      instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   server:
     enable-self-preservation: true
     registry-sync-retry-wait-ms: 500
@@ -140,7 +140,7 @@ eureka:
 
 ```
 eureka:
-  environment: development
+  environment: zone
   client:
     region: cn-shanghai-1
     serviceUrl:

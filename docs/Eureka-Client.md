@@ -41,12 +41,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
     metadataMap:
-      instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}}
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    instance-info-replication-interval-seconds: 10
-    registry-fetch-interval-seconds: 10
+      instanceId: ${spring.cloud.client.ipAddress}:${server.port}
 ```
 
 ## 1. 单机模式
@@ -98,17 +93,11 @@ eureka:
       cn-shanghai-1: zone1,zone2
 ```
 
-## 4. 使用向导
+也可以像集群方式一样（但不推荐）：
 
 ```
-@Autowired
-private DiscoveryClient discoveryClient;
-
-public String serviceUrl() {
-    List<ServiceInstance> list = discoveryClient.getInstances("STORES");
-    if (list != null && list.size() > 0 ) {
-        return list.get(0).getUri();
-    }
-    return null;
-}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://zone1:8761/eureka/,http://zone2:8761/eureka/
 ```

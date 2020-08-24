@@ -1,6 +1,6 @@
 # Service Discovery: Eureka Clients
 
-本文基于 Spring Boot 来快速搭建 Eureka Server。首先，在 Spring Boot 项目中添加 Maven 依赖管理：
+本文基于 Spring Boot 来快速搭建 Eureka Client。首先，在 Spring Boot 项目中添加 Maven 依赖管理：
 
 ```
 <dependency>
